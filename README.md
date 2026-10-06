@@ -27,6 +27,34 @@ The MVP combines CSV input, Playwright browser automation, and Moodle's accessib
 7. Create each missing group using the real Moodle form labels.
 8. Verify that each created group appears in the Groups list.
 
+## Demo
+
+### Before Automation
+
+The test course starts without the demo groups created by the automation.
+
+![Moodle groups before automation](screenshots/01-moodle-groups-before.png)
+
+### First Execution
+
+The Python + Playwright workflow reads the CSV input and creates the configured groups in Moodle.
+
+![First script execution](screenshots/02-script-execution.png)
+
+### Result in Moodle
+
+After the automation completes, the created groups are visible in the Moodle group-management interface.
+
+![Moodle groups after automation](screenshots/03-moodle-groups-after.png)
+
+### Idempotent Second Run
+
+Running the automation again does not create duplicates. Existing groups are detected and skipped.
+
+![Idempotent second run](screenshots/04-second-run-idempotent.png)
+
+See [screenshots/README.md](screenshots/README.md) for detailed screenshot documentation.
+
 ## Tech Stack
 
 - Python 3.10+
@@ -50,7 +78,11 @@ automation/
 │   ├── architecture.md
 │   └── case-study.md
 ├── screenshots/
-│   └── README.md          # Capture plan; no generated images are included
+│   ├── 01-moodle-groups-before.png
+│   ├── 02-script-execution.png
+│   ├── 03-moodle-groups-after.png
+│   ├── 04-second-run-idempotent.png
+│   └── README.md          # Screenshot documentation
 ├── .env.example
 ├── .gitignore
 ├── requirements.txt
